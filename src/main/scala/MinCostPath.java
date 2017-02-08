@@ -1,3 +1,7 @@
+import scala.Int;
+
+import java.util.ArrayList;
+
 /**
  * Created by NKumar on 12/19/2016.
  */
@@ -20,17 +24,20 @@ public class MinCostPath {
         // path will be either from top or left, choose which ever is minimum
         for (int i = 1; i < A.length; i++) {
             for (int j = 1; j < A.length; j++) {
-                //System.out.println("[" + i + "," + j + "]" +"-->"+"[" + (i-1) + "," + j + "] and "+"[" + i + "," + (j-1) + "]");
+
                 solution[i][j] = A[i][j] + Math.min(solution[i - 1][j], solution[i][j - 1]);
             }
-            //System.out.println("----------");
+
         }
         return solution[A.length - 1][A.length - 1];
     }
+
 
     public static void main(String[] args) {
         int[][] A = { { 1, 7, 9, 2 }, { 8, 6, 3, 2 }, { 1, 6, 7, 8 },
                 { 2, 9, 8, 2 } };
         System.out.println("Minimum Cost Path " + find(A));
+
+
     }
 }
